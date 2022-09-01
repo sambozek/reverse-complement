@@ -47,6 +47,17 @@ def fasta_parse(fasta_text):
     fasta_df = pd.DataFrame(fasta_split, columns=['Name', 'DNA_String'])
     return fasta_df
 
+def dna_check(dna_str):
+    """Check to make sure that there are no characters outside of the 
+    Args:
+        dna_str (str): DNA string portion from a FASTA file
+    Returns:
+        bool: If the DNA string has any non appropriate characters. 
+    """
+    nucleotides = set(['A', 'C', 'G', 'T', 'a', 'c', 'g', 't'])
+    return set(dna_str.replace('\n', '')) <= nucleotides
+
+
 @app.callback(
     Output('dna-label', 'children'),
     Input('fasta-DNA-input', 'value')
@@ -60,7 +71,12 @@ def input_name(value):
     Input('fasta-DNA-input', 'value')
 )
 def reverse_complement(value):
-    return fasta_parse(value)['DNA_String']
+    fasta_df = fasta_parse(value)
+    if dna_check(fasta_df['DNA_String'][0]):
+        return fasta_df['DNA_String'][0]
+
+    else:
+        return "Not Valid DNA String"
 
 
 if __name__ == '__main__':
