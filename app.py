@@ -100,4 +100,4 @@ def reverse_complement(value):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    app.run_server(port=1234,debug=False)
