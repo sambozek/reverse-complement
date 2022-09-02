@@ -6,9 +6,9 @@ Return the reverse complement of a DNA string given a fasta file input into a te
 To initialize docker:
 
 ```
-docker build -t takara .
+docker build -t reverse-complement .
 
-docker run -p 1234:1234 takara
+docker run -p 1234:1234 reverse-complement
 ```
 
 This makes sure that the port is the 1234 as *kind of* requested in the initial assignment email.
