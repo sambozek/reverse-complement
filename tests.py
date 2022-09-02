@@ -1,5 +1,5 @@
 import unittest
-from app import dna_check, dna_reverse_complement
+from app.app import dna_check, dna_reverse_complement
 
 class TestDNAMethods(unittest.TestCase):
     def test_dna_string(self):

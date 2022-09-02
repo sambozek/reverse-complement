@@ -4,6 +4,7 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 
 app.layout = html.Div([
     html.H1("Sam's Reverse Compositer for FASTA Files"),
@@ -99,5 +100,5 @@ def reverse_complement(value):
         return "Not Valid DNA String"
 
 
-if __name__ == '__main__':
-    app.run_server(port=1234,debug=False)
+# if __name__ == '__main__':
+#     app.run_server(host='0.0.0.0', port=1234)

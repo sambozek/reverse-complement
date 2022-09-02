@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  takata:
+    image: takata
+    build:
+      context: .
+      dockerfile: ./Dockerfile
